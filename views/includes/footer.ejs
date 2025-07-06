@@ -1,0 +1,311 @@
+<style>
+  footer {
+    background-color: #fff;
+    color: #333;
+    border-top: 4px solid #ff385c;
+    padding: 40px 20px;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    gap: 40px;
+    justify-content: space-between;
+   
+  }
+
+  /* Section base */
+  .footer-section {
+    flex: 1 1 200px;
+    min-width: 180px;
+  }
+
+  /* Branding */
+  .footer-branding .footer-logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #ff385c;
+  }
+  .footer-branding .footer-tagline {
+    margin: 8px 0 16px;
+    font-style: italic;
+    color: #666;
+  }
+  .footer-socials a {
+    margin-right: 12px;
+    font-size: 1.2rem;
+    color: #ff385c;
+    transition: transform 0.2s;
+  }
+  .footer-socials a:hover {
+    transform: scale(1.2);
+  }
+
+  /* Quick Links */
+  .footer-links h4,
+  .footer-newsletter h4 {
+    margin-bottom: 12px;
+    font-size: 1.1rem;
+    color: #ff385c;
+  }
+  .footer-links ul {
+    list-style: none;
+    padding: 0;
+  }
+  .footer-links li {
+    margin-bottom: 8px;
+  }
+  .footer-links a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover {
+    color: #ff385c;
+  }
+
+  /* Newsletter */
+  .footer-newsletter p {
+    margin: 0 0 12px;
+    color: #555;
+  }
+  .footer-newsletter form {
+    display: flex;
+    gap: 8px;
+  }
+  .footer-newsletter input[type="email"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  .footer-newsletter button {
+    padding: 8px 16px;
+    background-color: #ff385c;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .footer-newsletter button:hover {
+    background-color: #e72f52;
+  }
+
+  /* Legal + Back to Top */
+  .footer-legal {
+    text-align: center;
+  }
+  .footer-legal p {
+    margin-bottom: 8px;
+    color: #777;
+  }
+  .footer-legal-links a {
+    margin: 0 8px;
+    font-size: 0.9rem;
+    color: #555;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-legal-links a:hover {
+    color: #ff385c;
+  }
+  .back-to-top {
+    margin-top: 16px;
+    background: none;
+    border: 1px solid #ff385c;
+    color: #ff385c;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+  }
+  .back-to-top:hover {
+    background-color: #ff385c;
+    color: #fff;
+  }
+
+  /* Popup background */
+  .popup {
+    display: none; /* hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+
+  /* Popup box */
+  .popup-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px 30px;
+    border: 2px solid #ff385c;
+    width: 80%;
+    max-width: 400px;
+    border-radius: 10px;
+    position: relative;
+    color: #333;
+    font-family: "Segoe UI", sans-serif;
+  }
+
+  /* Close button */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #ff385c;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .close:hover {
+    color: #e72f52;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+      gap: 30px;
+    }
+    .footer-newsletter form {
+      flex-direction: column;
+    }
+    .footer-newsletter input,
+    .footer-newsletter button {
+      width: 100%;
+    }
+  }
+  .destinations-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  .destinations-list li {
+    margin: 6px 0;
+    color: #444;
+  }
+</style>
+<footer>
+  <div class="footer-container">
+    <!-- Social + Brand -->
+    <div class="footer-section footer-branding">
+      <div class="footer-logo">StayExplorer</div>
+      <p class="footer-tagline">Explore. Dream. Discover.</p>
+      <div class="footer-socials">
+        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/omkar-patil-1a8818346/>"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-section footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#" onclick="showAbout()">About Us</a></li>
+        <div id="aboutPopup" class="popup">
+          <div class="popup-content">
+            <span class="close" onclick="closeAbout()">&times;</span>
+            <h3>About Wanderlust</h3>
+            <p>
+              Wanderlust is your companion in discovering new destinations and
+              unforgettable adventures around the globe. We bring handpicked
+              experiences and travel tips to your screen.
+            </p>
+          </div>
+        </div>
+        <li><a href="#" onclick="showDestinations()">Destinations</a></li>
+        <!-- Destinations Popup -->
+        <div id="destinationsPopup" class="popup">
+          <div class="popup-content">
+            <span class="close" onclick="closeDestinations()">&times;</span>
+            <h3>Top Places to Explore</h3>
+            <ul class="destinations-list">
+              <li><strong>Paris</strong> - City of Lights</li>
+              <li><strong>Bali</strong> - Island of the Gods</li>
+              <li><strong>Tokyo</strong> - Neon & Nature</li>
+              <li><strong>Iceland</strong> - Northern Lights & Volcanoes</li>
+            </ul>
+            <p style="margin-top: 10px">More coming soon... 🌍</p>
+          </div>
+        </div>
+        <li>
+          <a href="https://www.nomadicmatt.com" target="_blank">Travel Blog</a>
+        </li>
+        <li>Contact - 001 456 7837</li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-section footer-newsletter">
+      <h4>Stay Updated</h4>
+      <p>Join our newsletter for travel tips & deals</p>
+      <form action="/subscribe" method="POST" novalidate class="needs-validation">
+        <input name="subscriber[email]" type="email" placeholder="Your email address" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+
+    <!-- Legal + Back to Top -->
+    <div class="footer-section footer-legal">
+      <p>&copy; 2025 StayExplorer Private Limited</p>
+      <div class="footer-legal-links">
+        <a>Privacy Policy</a>
+        <a>Terms of Service</a>
+      </div>
+      <button
+        class="back-to-top"
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
+      >
+        ↑ Back to Top
+      </button>
+    </div>
+  </div>
+</footer>
+<script>
+  function showAbout() {
+    document.getElementById("aboutPopup").style.display = "block";
+  }
+
+  function closeAbout() {
+    document.getElementById("aboutPopup").style.display = "none";
+  }
+
+  // Optional: close popup on outside click
+  window.onclick = function (event) {
+    const popup = document.getElementById("aboutPopup");
+    if (event.target == popup) {
+      popup.style.display = "none";
+    }
+  };
+</script>
+<script>
+  function showDestinations() {
+    document.getElementById("destinationsPopup").style.display = "block";
+  }
+
+  function closeDestinations() {
+    document.getElementById("destinationsPopup").style.display = "none";
+  }
+
+  // Optional: click outside to close
+  window.onclick = function (event) {
+    const aboutPopup = document.getElementById("aboutPopup");
+    const destinationsPopup = document.getElementById("destinationsPopup");
+
+    if (event.target == aboutPopup) aboutPopup.style.display = "none";
+    if (event.target == destinationsPopup)
+      destinationsPopup.style.display = "none";
+  };
+</script>

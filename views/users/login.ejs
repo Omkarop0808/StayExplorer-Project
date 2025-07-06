@@ -1,0 +1,83 @@
+<% layout("/layouts/boilerplate") %>
+
+<style>
+  body {
+    background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e'); 
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    backdrop-filter: blur(5px);
+  }
+
+  .login-card {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    margin-top: 6rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    color: white;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .login-card:hover {
+    transform: scale(1.02);
+  }
+
+  label {
+    color: white;
+    font-weight: 500;
+  }
+
+  .form-control {
+    background-color: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+  }
+
+  .form-control::placeholder {
+    color: #ccc;
+  }
+
+  .form-control:focus {
+    background-color: rgba(255,255,255,0.2);
+    box-shadow: 0 0 0 0.2rem rgba(255,255,255,0.3);
+    border: none;
+    color: white;
+  }
+
+  .btn-success {
+    background-color: #FF385C;
+    opacity:0.5;
+    border: none;
+    transition:  0.3s;
+  }
+
+  .btn-success:hover {
+    background-color: #FF385C;
+    opacity:1;
+  }
+</style>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 login-card">
+      <h1 class="text-center mb-4">Login on StayExplorer</h1>
+      <form action="/login" method="POST" novalidate class="needs-validation">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input name="username" id="username" type="text" class="form-control" placeholder="Enter your username" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input name="password" id="password" type="password" class="form-control" placeholder="Enter your password" required>
+        </div>
+
+        <button class="btn btn-success w-100">Login</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<% layout("/layouts/boilerplate") %>
+
+<link rel="stylesheet" href="/css/chat.css">
+
+<div id="chat-container" class="shadow-lg">
+  <!-- Header bar -->
+  <div class="chat-header">
+    <img src="/images/bot-avatar.png" class="avatar bot-avatar" />
+    <span>ChatBot</span>
+  </div>
+
+  <!-- Message area -->
+  <div id="messages" class="chat-body">
+    <!-- Bot’s greeting -->
+    <div class="msg bot">
+      <div class="bubble">
+        👋 Hello there! I’m your travel concierge.<br>
+        Ask me anything about this stay.
+      </div>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <form id="chat-form" class="chat-input">
+    <input type="hidden" id="listingId" value="<%= listingId %>">
+    <input id="user-input" autocomplete="off" placeholder="Ask me anything…" />
+    <button class="btn-send">
+      <i class="fa-solid fa-paper-plane"></i>
+    </button>
+  </form>
+</div>
+
+<!-- Keep your script exactly as before -->
+<script>
+  const form       = document.getElementById("chat-form");
+  const input      = document.getElementById("user-input");
+  const messages   = document.getElementById("messages");
+  const listingId  = document.getElementById("listingId").value;
+  const history    = [];
+
+  function appendMessage(who, text) {
+    const wrapper = document.createElement("div");
+    wrapper.className = `msg ${who}`;
+    wrapper.innerHTML = `
+      ${who === "user" ? '<img src="/images/user-avatar.png" class="avatar user-avatar" />' : '<img src="/images/bot-avatar.png" class="avatar bot-avatar" />'}
+      <div class="bubble">${text}</div>`;
+    messages.appendChild(wrapper);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (!text) return;
+
+    appendMessage("user", text);
+    history.push({ role: "user", content: text });
+    input.value = "";
+
+    const res = await fetch("/chat/api", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ messages: history, listingId })
+    });
+    const { reply } = await res.json();
+
+    appendMessage("bot", reply);
+    history.push({ role: "model", content: reply });
+  });
+</script>

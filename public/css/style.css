@@ -1,0 +1,251 @@
+
+body {
+    font-family : "Plus Jakarta Sans",sans-serif !important;
+    display:flex;
+    flex-direction:column;
+    min-height:100vh;
+
+}
+
+.container {
+    flex:1;
+}
+.navbar {
+    height : 5rem;
+    background-color: white;
+}
+
+.fa-compass{
+    color:#fe424d;
+    font-size:2rem;
+}
+
+.nav-link {
+    color:#222222 !important;
+}
+.f-info-links a{
+  text-decoration :none;
+  color:#222222;
+}
+
+.f-info-links a:hover{
+    text-decoration: underline;
+}
+
+.f-info-links,.f-info-socials,.f-info-brand{
+   width: 100%;
+   display:flex;
+   align-items: center;
+   justify-content: center;
+}
+
+.f-info-socials i{
+    font-size : 1.2rem;
+    margin-right:1rem ;
+}
+
+.f-info {
+    text-align : center;
+    height:8rem ;
+    background-color:#ebebeb ;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content : center;
+    align-items : space-evenly;
+}
+
+.listing-card {
+    border:none !important;
+    margin-bottom : 2rem;
+   
+
+}
+.card-img-top {
+border-radius :  1 rem !important;
+width : 100% !important;
+object-fit : cover ! important;
+
+}
+.card-body {
+    padding : 0 !important;
+
+}
+
+.card-text p{
+  font-weight: 400;
+}
+
+.listing-link {
+    text-decoration:none;
+}
+/* card EFFECT */
+.card-img-overlay{
+    opacity:0
+}
+.card-img-overlay:hover {
+  opacity : 0.2;
+  background-color:white;
+}
+/* EDIT PAGE */
+
+/* Show page */
+.show-img{
+    height:30vh;
+
+}
+.btns{
+    display:flex;
+}
+
+.show-card{
+    padding-left:0;
+    margin-left:0;
+
+}
+
+/* divider show page style */
+   .divider-container {
+    display: flex;
+    align-items: center;
+    margin: 30px 0 20px;
+    font-family: 'Segoe UI', sans-serif;
+    animation: fadeIn 1s ease-out;
+  }
+
+  .divider-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #222;
+    margin-right: 12px;
+    white-space: nowrap;
+  }
+
+  .divider-line {
+    flex-grow: 1;
+    height: 2px;
+    background: #FF385C; /* Airbnb color */
+    border-radius: 1px;
+    animation: pulseSlide 1.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulseSlide {
+    0% {
+      transform: scaleX(0.8);
+      opacity: 0.5;
+    }
+    50% {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scaleX(1);
+      opacity: 0.5;
+    }
+  }
+
+
+
+/* .del-btn {
+  margin-left:4rem;
+  margin-bottom:4rem;
+} */
+ /* Map */
+#map{
+  height:400px;        /* or any height you like */
+  width:100%;
+  border-radius:8px;
+  margin-top:1rem;
+}
+
+/* ─────────────  REVIEW SECTION  ───────────── */
+
+/* Heading “All Reviews” */
+.row.col-6.offset-2 > p {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* Review card container */
+.row.col-6.offset-2 .card {
+  background: #fff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Subtle hover lift */
+.row.col-6.offset-2 .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Card inner padding */
+.row.col-6.offset-2 .card-body {
+  padding: 1.25rem 1.5rem;
+}
+
+/* Username (@john) */
+.row.col-6.offset-2 .card-title {
+  font-weight: 700;
+  color: #007b5e;        
+  margin-bottom: 0.4rem;
+}
+
+/* Gold star rating – works with starability */
+.row.col-6.offset-2 .starability-result {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #ffc107;
+}
+
+/* Review text */
+.row.col-6.offset-2 .card-text {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Delete button */
+.row.col-6.offset-2 .btn-dark {
+
+  border: none;
+  padding: 0.35rem 1rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.row.col-6.offset-2 .btn-dark:hover {
+  background: #c82333;
+}
+
+/* Star rating: smaller and elegant */
+.row.col-6.offset-2 .starability-result {
+  font-size: 0.9rem;       /* smaller stars */
+  margin-bottom: 0.4rem;
+  color: #f4c150;          /* subtle gold */
+  letter-spacing: 2px;
+}
+
+/* Review comment:*/
+.row.col-6.offset-2 .card-text {
+  font-size: 0.95rem;
+  color: #444;
+  font-family: 'Georgia', serif;     /* elegant, readable font */
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: 0.2rem;
+}
+
