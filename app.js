@@ -53,11 +53,13 @@ const store = MongoStore.create({
     touchAfter:24 * 3600,
 });
 
-store.on("error",() =>{
-    console.lof("ERROR IN MONGO SESSION",err);
-})
+store.on("error", err => {
+  console.error(" ERROR IN MONGO SESSION:", err);
+});
+
+
 const sessionOptions = {
-    store:store,
+    store,
     secret : process.env.SECRET,
     resave : false,
     saveUninitialized : true,
