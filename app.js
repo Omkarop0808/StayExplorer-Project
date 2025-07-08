@@ -84,10 +84,6 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 
-app.get("/", (req, res) => {
-  res.redirect("/listings"); // or render("home") if you have a home.ejs
-});
-
 
 
 app.use((req,res,next) =>{
@@ -115,6 +111,9 @@ app.use("/",userRouter);
 app.use("/chat", chatRouter);
 app.use("/", subscribeRouter);
 
+app.get("/", (req, res) => {
+  res.redirect("/listings"); // or render("home") if you have a home.ejs
+});
 
 
 app.use((err,req,res,next)=>{
