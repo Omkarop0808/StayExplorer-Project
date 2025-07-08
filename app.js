@@ -128,7 +128,7 @@ main()
   .then(() => {
     console.log("MongoDB connected");
     app.listen(PORT, () => {
-      console.log(" server listening on port 8080");
+      console.log(`🚀 Server listening on port ${PORT}`);
     });
   })
   .catch(err => {
