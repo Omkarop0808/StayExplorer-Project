@@ -104,19 +104,24 @@
   }
 }
 
-<!-- Mobile Category Toggle Button -->
+<!-- Desktop Filter (visible only on large screen) -->
+<div id="filters" class="d-none d-md-flex flex-wrap justify-content-end">
+  <%- include("listings/categories") %>
+</div>
+
+<!-- Mobile Toggle -->
 <div class="text-center d-md-none">
   <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#mobileCategoryMenu" aria-expanded="false" aria-controls="mobileCategoryMenu" id="categoryToggleBtn">
     Categories
   </button>
 </div>
 
-<!-- Mobile Collapsible Menu -->
 <div class="collapse d-md-none px-3" id="mobileCategoryMenu">
   <div class="d-flex flex-wrap justify-content-center">
-    <%- include("./categories") %>
+    <%- include("listings/categories") %>
   </div>
 </div>
+
 
 
 
