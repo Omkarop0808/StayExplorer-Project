@@ -269,10 +269,12 @@ object-fit : cover ! important;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .row-cols-sm-1 > .col {
-    flex: 0 0 50% !important;
-    max-width: 50% !important;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 }
+
 
