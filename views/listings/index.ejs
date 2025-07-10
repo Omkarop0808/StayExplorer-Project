@@ -72,12 +72,13 @@
     margin: 1rem auto;
   }
 
-  #mobileCategoryMenu {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    justify-content: center;
-  }
+#mobileCategoryMenu .d-flex {
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+
 
   #mobileCategoryMenu .filter {
     flex: 0 1 calc(33.33% - 1rem); /* 3 per row, auto wrap */
@@ -108,7 +109,7 @@
 </style>
 
 <!-- DESKTOP Filter -->
-<div id="filters" class="d-none d-md-flex flex-wrap justify-content-end">
+<div id="filters" class="d-none d-md-flex flex-wrap justify-content-start">
   <%- include("./categories") %>
 </div>
 
@@ -119,22 +120,12 @@
   </button>
 </div>
 
-<!-- MOBILE Button -->
-<div class="text-center">
-  <button
-    class="btn btn-outline-dark"
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#mobileCategoryMenu"
-    aria-expanded="false"
-    aria-controls="mobileCategoryMenu"
-    id="categoryToggleBtn"
-  >
-    Categories
-  </button>
+<!-- MOBILE Filters -->
+<div class="collapse d-md-none" id="mobileCategoryMenu">
+  <div class="d-flex flex-wrap justify-content-center px-3">
+    <%- include("./categories") %>
+  </div>
 </div>
-
-
 
 
 
