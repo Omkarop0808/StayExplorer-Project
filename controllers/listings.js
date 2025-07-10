@@ -46,7 +46,7 @@ module.exports.createListing = async (req, res) => {
     listing.image = { url: '', filename: '' };   // triggers your setter
   }
 
-  /* 4️⃣  ── NEW: copy coordinates if we find a match ──────────────── */
+
   // 4a. Try an exact LOCATION match
   let match = await Listing.findOne({ location: listing.location }).select('geometry');
 
@@ -109,3 +109,27 @@ module.exports.renderEditForm = async(req,res)=>{
      res.redirect("/listings");
  
  }
+
+// working on it 
+module.exports.createListing = async (req, res) => {
+  const { title, description } = req.body.listing;
+
+  const listing = new Listing(req.body.listing);
+  listing.owner = req.user._id;
+
+  const autoCategory = detectCategory(title, description);
+  if (autoCategory) {
+    listing.category = autoCategory;
+  }
+
+  if (req.file) {
+    listing.image = {
+      url: req.file.path,
+      filename: req.file.filename
+    };
+  }
+
+  await listing.save();
+  req.flash("success", "New Listing Created!");
+  res.redirect(`/listings/${listing._id}`);
+};
