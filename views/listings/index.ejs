@@ -1,4 +1,19 @@
 <% layout("/layouts/boilerplate") %><%=success%>
+<!-- Mobile Category Toggle Button -->
+<div class="text-center my-3 d-md-none">
+  <button class="btn btn-outline-dark" type="button" data-bs-toggle="collapse" data-bs-target="#mobileCategoryMenu" aria-expanded="false" aria-controls="mobileCategoryMenu" id="categoryToggleBtn">
+    Categories
+  </button>
+</div>
+
+<!-- Mobile Collapsible Menu -->
+<div class="collapse d-md-none px-3" id="mobileCategoryMenu">
+  <div class="d-flex flex-column">
+    <% // re-use your filters markup exactly as-is %>
+    <%= include("/partials/categories") %> 
+  </div>
+</div>
+
 
 <style>
     #filters {
