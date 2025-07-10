@@ -1,7 +1,7 @@
 const {listingSchema,reviewSchema} = require("../schema.js");
 const Listing = require("../models/listing.js");
 const ExpressError = require("../utils/ExpressError.js");
-const detectCategory = require("../utils/categoryDetect");
+const detectCategory = require("../utils/categoryDetect.js");
 
 module.exports.index = async(req, res) => {
     const allListings = await Listing.find({});
