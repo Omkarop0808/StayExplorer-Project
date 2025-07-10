@@ -104,9 +104,9 @@
   }
 }
 
-<!-- Desktop Filter (visible only on large screen) -->
+<!-- Desktop Filter -->
 <div id="filters" class="d-none d-md-flex flex-wrap justify-content-end">
-  <%- include("listings/categories") %>
+  <%- include("./categories") %>
 </div>
 
 <!-- Mobile Toggle -->
@@ -118,9 +118,10 @@
 
 <div class="collapse d-md-none px-3" id="mobileCategoryMenu">
   <div class="d-flex flex-wrap justify-content-center">
-    <%- include("listings/categories") %>
+    <%- include("./categories") %>
   </div>
 </div>
+
 
 
 
