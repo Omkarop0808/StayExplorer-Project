@@ -1,48 +1,37 @@
-const Listing = require("../models/listing");
-const getCoordinates = require("../utils/coordinates");
+const axios = require('axios');
 
-// Create Listing
-module.exports.createListing = async (req, res) => {
-  const listingData = req.body.listing;
-  const coords = await getCoordinates(listingData.location);  // Add this line
+async function getCoordinates(location) {
+  try {
+    const response = await axios.get("https://nominatim.openstreetmap.org/search", {
+      params: {
+        q: location,
+        format: "json",
+        limit: 1
+      },
+      headers: {
+        "User-Agent": "StayExplorerApp/1.0"
+      }
+    });
 
-  const newListing = new Listing(listingData);
-  newListing.geometry = coords;
-  newListing.owner = req.user._id;
+    const place = response.data[0];
+    if (!place) {
+      return {
+        type: "Point",
+        coordinates: [0, 0], // Default/fallback
+      };
+    }
 
-  if (req.file) {
-    newListing.image = {
-      url: req.file.path,
-      filename: req.file.filename,
+    return {
+      type: "Point",
+      coordinates: [parseFloat(place.lon), parseFloat(place.lat)]
+    };
+  } catch (error) {
+    console.error("Geocoding error:", error);
+    return {
+      type: "Point",
+      coordinates: [0, 0]
     };
   }
+}
 
-  await newListing.save();
-  req.flash("success", "Listing Created Successfully!");
-  res.redirect(`/listings/${newListing._id}`);
-};
-
-// Update Listing
-module.exports.updateListing = async (req, res) => {
-  const { id } = req.params;
-  const listingData = req.body.listing;
-
-  const listing = await Listing.findByIdAndUpdate(id, listingData, { new: true });
-
-  // Recalculate coordinates if location was updated
-  if (req.body.listing.location) {
-    const coords = await getCoordinates(req.body.listing.location);
-    listing.geometry = coords;
-  }
-
-  if (req.file) {
-    listing.image = {
-      url: req.file.path,
-      filename: req.file.filename,
-    };
-  }
-
-  await listing.save();
-  req.flash("success", "Listing Updated Successfully!");
-  res.redirect(`/listings/${listing._id}`);
-};
+module.exports = getCoordinates;
