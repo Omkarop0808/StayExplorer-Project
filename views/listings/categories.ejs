@@ -1,0 +1,88 @@
+<div id="filters">
+    
+    <div class="filter trending <%= activeCat === 'Trending' ? 'active-filter' : '' %>">
+    <a href="/listings/category/trending" >
+    <div><i class="fa-solid fa-fire  icon"></i></div>
+    <p>Trending</p>  
+     </a>
+     </div>
+     <div class="filter <%= activeCat === 'Rooms' ? 'active-filter' : '' %>">
+    <a href="/listings/category/rooms" >
+    <div><i class="fa-solid fa-bed"></i></div>
+    <p>Rooms</p>  
+     </a>
+     </div>
+       <div class="filter <%= activeCat === 'Iconic cities' ? 'active-filter' : '' %>">
+    <a href="/listings/category/iconiccities" >
+    <div><i class="fa-solid fa-city"></i></div>
+    <p>Iconic cities</p>  
+     </a>
+     </div>
+    <div class="filter <%= activeCat === 'Mountain cities' ? 'active-filter' : '' %>">
+    <a href="/listings/category/mountaincities" >
+    <div><i class="fa-solid fa-mountain-city"></i></div>
+    <p>Mountain cities</p>  
+     </a>
+    </div>
+    <div class="filter <%= activeCat === 'Castle' ? 'active-filter' : '' %>">
+    <a href="/listings/category/castle" >
+    <div><i class="fa-brands fa-fort-awesome"></i></div>
+    <p>Castle</p>  
+     </a>
+    </div>
+    <div class="filter <%= activeCat === 'Amazing pools' ? 'active-filter' : '' %>">
+    <a href="/listings/category/amazingpools" >
+    <div><i class="fa-solid fa-person-swimming"></i></div>
+    <p>Amazing pools</p>  
+     </a>
+    </div>
+    <div class="filter <%= activeCat === 'Campign' ? 'active-filter' : '' %>">
+    <a href="/listings/category/campign" >
+    <div><i class="fa-solid fa-campground"></i></div>
+    <p>Campign</p>  
+     </a>
+    </div>
+    <div class="filter <%= activeCat === 'Farms' ? 'active-filter' : '' %>">
+    <a href="/listings/category/farms" >
+    <div><i class="fa-solid fa-cow"></i></div>
+    <p>Farms</p>  
+     </a>
+    </div>
+    <div class="filter <%= activeCat === 'Artic' ? 'active-filter' : '' %>">
+    <a href="/listings/category/artic" >
+    <div><i class="fa-solid fa-snowflake"></i></div>
+    <p>Artic</p>  
+     </a>
+    </div>
+    <div class="filter <%= activeCat === 'Beachfront' ? 'active-filter' : '' %>">
+    <a href="/listings/category/beachfront" >
+    <div><i class="fa-solid fa-umbrella-beach"></i></div>
+    <p>Beachfront</p>  
+     </a>
+    </div>
+    <div class="filter <%= activeCat === 'City Escape' ? 'active-filter' : '' %>">
+    <a href="/listings/category/cityescape" >
+    <div><i class="fa-solid fa-city"></i></div>
+    <p>City Escapes</p>  
+     </a>
+    </div>
+     <div class="filter <%= activeCat === 'Skiing' ? 'active-filter' : '' %>">
+    <a href="/listings/category/skiing" >
+    <div><i class="fa-solid fa-person-skiing"></i></div>
+    <p>Skiing</p>  
+     </a>
+    </div>
+    <div class="filter <%= activeCat === 'Island' ? 'active-filter' : '' %>">
+    <a href="/listings/category/island" >
+    <div><i class="fa-solid fa-water"></i></div>
+    <p>Island</p>  
+     </a>
+    </div>
+      
+    <div class="tax-toggle">
+    <div class="form-check-reverse form-switch">
+    <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+    <label class="form-check-label" for="flexswitchCheckDefault">Display total after taxes</label>
+    </div>
+    </div>
+</div>
