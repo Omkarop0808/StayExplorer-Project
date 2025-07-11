@@ -18,7 +18,33 @@
     border-radius:25px;
     padding:0.5rem 2.5rem 0.5rem 3.5rem;
     font-size:0.8rem;
+
+
    }
+
+
+  /* Glassmorphism background for collapsed navbar menu */
+  .navbar-collapse.show {
+    background: rgba(255, 102, 153, 0.2); /* pinkish red translucent */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  }
+
+  /* Optional: smooth transition */
+  .navbar-collapse {
+    transition: all 0.3s ease-in-out;
+  }
+
+  /* Make the toggle icon more visible on light bg */
+  .navbar-toggler {
+    border-color: #fe5c6c;
+  }
+
+
 </style>
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top" >
   <div class="container-fluid">
