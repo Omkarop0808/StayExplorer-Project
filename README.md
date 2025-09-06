@@ -1,4 +1,4 @@
-# 🏕 StayExplorer
+# 🏕 StayExplorer - Check it out here : https://stayexplorer-project.onrender.com/listings
 
 StayExplorer is a full-stack web application where users can **explore, list, and manage favorite travel destinations**, complete with **authentication**, **chat support**, and **MongoDB integration**.
 
@@ -50,3 +50,4 @@ DB_URL=mongodb+srv://<your-cluster-url>
 SESSION_SECRET=your_session_secret
 GEMINI_API_KEY=your_chatbot_key   # if using chatbot
 npm run dev
+
